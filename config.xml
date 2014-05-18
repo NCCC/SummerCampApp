@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "se.nccc.scapp"
+        versionCode = "10" 
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Summer Camp</name>
+
+    <description>
+        Summer Camp App. 
+    </description>
+
+    <author href="http://nccc.se" email="support@nccc.se">
+        NCCC
+    </author>
+
+</widget>

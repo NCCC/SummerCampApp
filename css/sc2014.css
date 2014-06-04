@@ -1,0 +1,92 @@
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+div.app {
+  background-image: url('../images/bg2.png');
+}
+
+#sidebar {
+position: absolute;
+top: 0;
+padding: 3em 1.35em 1em 1.15em;
+background: #364050 url('../images/bg1.png');
+box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);
+}
+
+#logo {
+  background-color: #c94663;
+  background-image: url('../images/bg1.png');
+  padding: 0.75em 0.5em 0.75em 0.5em;
+  border-radius: 0.4em;
+  text-align: center;
+  box-shadow: inset 0px 0px 0px 1px rgba(255,255,255,0.15), 0 0.025em 0.15em 0em rgba(0,0,0,0.25);
+}
+
+#logo h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+
+#sidebar .scrollable {
+  padding-top: 180px;
+}
+
+#sidebar a.list-group-item {
+  color: #555;
+  text-shadow: none;
+}
+
+#sidebar a.active {
+  color: white;
+}
+
+
+.navbar {
+  color: white;
+  background: #364050 url('../images/bg1.png');
+  border: none;
+}
+
+.navbar-app .btn, .navbar-app .btn-navbar {
+  color: white;
+}
+
+.media {
+  line-height: 1.5em;
+}
+.media-phone {
+  margin: 0;
+}
+
+.phone-contact {
+  font-size: 40px;
+  background: #ccc;
+  padding: 5px 10px;
+  color: black;
+  border-radius: 10px;
+}
+
+.schedule li a {
+  padding: 5px;
+}

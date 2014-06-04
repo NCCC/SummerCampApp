@@ -1,0 +1,13 @@
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="list-group">
+      <div class="list-group-item">
+        <h1>Fellowships</h1>
+      </div>
+      <a href="{{fellowship.url}}" ng-repeat="fellowship in fellowships" href="#" class="list-group-item">
+         <h2>{{ fellowship.name }}</h2>
+         <p>City: {{ fellowship.city }}</p>
+      </a>
+    </div>
+  </div>
+</div>

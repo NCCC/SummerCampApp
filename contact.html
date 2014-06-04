@@ -1,0 +1,25 @@
+
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="list-group" toggle="off" bubble target="rightSidebar">
+
+
+    <a class="list-group-item media" href="tel:{{person.phone}}" ng-repeat="person in contactPersons">
+      <div class="pull-left">
+        <i class="fa fa-phone phone-contact"></i>
+      </div>
+      <div class="media-body">
+          <h5 class="media-heading">{{person.name}}</h5>
+          <small ng-switch on="person.title">
+            <span class="label label-info">{{person.title}}</span>
+          </small>
+          <p class="media-phone">{{person.phone}}</p>
+      </div>
+    </a>
+
+
+
+
+    </div>
+  </div>
+</div>

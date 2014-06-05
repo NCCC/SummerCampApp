@@ -16,5 +16,7 @@
     <author href="http://nccc.se" email="support@nccc.se">
         NCCC
     </author>
+    
+    <preference name="permissions"                value="none"/>
 
 </widget>

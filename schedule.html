@@ -1,28 +1,35 @@
 <div class="scrollable"> 
   <div class="scrollable-content">
-    <div class="section container-fluid">
-
+    <div class="section">
+      <h1>Schedule</h1>
       <ul class="nav nav-tabs schedule">
-        <li><a href="#Monday" toggle="on" parent-active-class="active">Mo</a></li>
-        <li><a href="#Tuesday" toggle="on" parent-active-class="active">Tu</a></li>
-        <li><a href="#Wednesday" toggle="on" parent-active-class="active">We</a></li>
-        <li><a href="#Thursday" toggle="on" parent-active-class="active">Th</a></li>
-        <li><a href="#Friday" toggle="on" parent-active-class="active">Fr</a></li>
-        <li><a href="#Saturday" toggle="on" parent-active-class="active">Sa</a></li>
-        <li><a href="#Sunday" toggle="on" parent-active-class="active">Su</a></li>
+        <li ng-repeat="date in dates"><a href="#{{date.dateobj}}" toggle="on" parent-active-class="active" active>{{date.date_text|limitTo:2}}</a></li>
       </ul>
 
       <div class="tab-content">
-        <div ng-repeat="day in days"
+        <div ng-repeat="date in dates"
             class="tab-pane" 
             toggleable 
             active-class="active" 
-            id="{{ day.name }}" 
+            id="{{ date.dateobj }}" 
+            default="{{ activeDay(date) }}"
             exclusion-group="myTabs">
 
-          <h3 class="page-header">{{ day.name }}</h3>
-          <div ng-repeat="entry in entries | filter:{day: day.number }" href="#" class="list-group-item" filter>
-             {{ entry.start }} - {{ entry.end }}: {{ entry.title }}
+          <h3 class="page-header">{{ date.date_text }}</h3>
+          <div class="schedule_container" style="height: {{date.container_height}}px;">
+            <div ng-repeat="hour in hoursArray(date.first_hour, date.last_hour)"
+             class="event_hour"
+             style="top: {{ (hour-date.first_hour)*60 }}px;">
+              {{ hour }}:00
+            </div>
+            <div class="event_container">
+              <div class="event_cell label label-info"
+                ng-repeat="entry in entries | filter:{date_text: date.date_text }"
+                style="top: {{entry.top}}px; height: {{entry.height}}px; left: {{entry.left}}%; width: {{entry.width}}%;"
+                filter>
+                 {{ entry.start }} - {{ entry.end }}: {{ entry.title }}
+              </div>
+            </div>
           </div>
         </div>
       </div>

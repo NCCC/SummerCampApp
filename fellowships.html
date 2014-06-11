@@ -4,7 +4,7 @@
       <div class="list-group-item">
         <h1>Fellowships</h1>
       </div>
-      <a href="{{fellowship.url}}" ng-repeat="fellowship in fellowships" href="#" class="list-group-item">
+      <a href="{{fellowship.url}}" onclick="window.open('{{fellowship.url}}','_system'); return false;" ng-repeat="fellowship in fellowships" href="#" class="list-group-item">
          <h2><i class="fa fa-link pull-right"></i> {{ fellowship.name }}</h2>
          <p>City: {{ fellowship.city }}</p>
       </a>

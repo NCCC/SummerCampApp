@@ -17,6 +17,8 @@
         NCCC
     </author>
     
+    <icon src="images/SCAppIcon.png" />
+    
     <preference name="permissions"                value="none"/>
 
 </widget>

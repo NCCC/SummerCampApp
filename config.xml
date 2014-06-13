@@ -20,5 +20,7 @@
     <icon src="images/SCAppIcon.png" />
     
     <preference name="permissions"                value="none"/>
+    
+    <gap:plugin name="org.li8.inappbrowser" version="0.1" />
 
 </widget>

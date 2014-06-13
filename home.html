@@ -12,7 +12,7 @@
           <i class="fa fa-calendar-o feature-icon text-primary"></i>
         </div>
         <div class="media-body">
-            <h3 class="media-heading">Upcoming events</h3>
+            <h2 class="media-heading">Upcoming events</h2>
             <p ng-repeat="entry in entries | filter:upcoming | limitTo: 3">
                {{entry.date_text}}  {{ entry.start }} - {{ entry.end }}: {{ entry.title }}
             </p>

@@ -1,8 +1,8 @@
 <div class="scrollable"> 
   <div class="scrollable-content">
-    <div class="section">
+    <div class="section schedule">
       <h1>Schedule</h1>
-      <ul class="nav nav-tabs schedule">
+      <ul class="nav nav-tabs">
         <li ng-repeat="date in dates"><a href="#{{date.dateobj}}" toggle="on" parent-active-class="active" active>{{date.date_text|limitTo:2}}</a></li>
       </ul>
 
@@ -15,7 +15,7 @@
             default="{{ activeDay(date) }}"
             exclusion-group="myTabs">
 
-          <h3 class="page-header">{{ date.date_text }}</h3>
+          <h2 class="page-header">{{ date.date_text }}</h2>
           <div class="schedule_container" style="height: {{date.container_height}}px;">
             <div ng-repeat="hour in hoursArray(date.first_hour, date.last_hour)"
              class="event_hour"

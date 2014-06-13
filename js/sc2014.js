@@ -12,14 +12,6 @@ app.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/fellowships', {templateUrl: "fellowships.html"}); 
 });
 
-/*app.service('analytics', [
-  '$rootScope', '$window', '$location', function($rootScope, $window, $location) {
-    var send = function(evt, data) {
-      ga('send', evt, data);
-    }
-  }
-]);*/
-
 
 app.controller('MainController', function($rootScope, $scope){
   $rootScope.$on("$routeChangeStart", function(){
@@ -40,18 +32,6 @@ app.controller('MainController', function($rootScope, $scope){
     'Saturday'
   ];
   
-  $scope.fixDate = function(dateobj) {
-    return $scope.day_names[dateobj.getDay()]+' '+dateobj.getDate()+'.'+(dateobj.getMonth()+1);
-  }
-
-  $scope.fixTime = function(dateobj) {
-    var time = dateobj.getHours()+':';
-    if (dateobj.getMinutes()<10)
-      time += '0';
-    time += dateobj.getMinutes();
-    return time;
-  }
-
   $scope.rules = [
     "1. Always listen to and cooperate with your group leaders.",
     "2. Go to bed in time. Be on time for all meetings.",
@@ -71,13 +51,26 @@ app.controller('MainController', function($rootScope, $scope){
   ];
   
   $scope.fellowships = [
-    { name: 'Agape Youth', city: 'Malmö', url: 'fb://profile/172209486156469' },
+    { name: 'Agape Youth', city: 'Malmö', url: 'https://www.facebook.com/groups/172209486156469/' },
     { name: 'ALIVE', city: 'Oslo', url: 'http://nccc.se/alive/' },
-    { name: 'Elpida Youth', city: 'Göteborg', url: 'fb://profile/391913957491215' },
-    { name: 'FourTwelve', city: 'Stockholm', url: 'fb://profile/236475346390232' },
-    { name: 'Joy', city: 'Helsinki', url: 'fb://profile/149243465105545' },
+    { name: 'Elpida Youth', city: 'Göteborg', url: 'https://www.facebook.com/elpida.youth' },
+    { name: 'FourTwelve', city: 'Stockholm', url: 'https://www.facebook.com/ncccfourtwelve' },
+    { name: 'Joy', city: 'Helsinki', url: 'https://www.facebook.com/Joy.youth' },
   ];
   
+  
+  $scope.fixDate = function(dateobj) {
+    return $scope.day_names[dateobj.getDay()]+' '+dateobj.getDate()+'.'+(dateobj.getMonth()+1);
+  }
+
+  $scope.fixTime = function(dateobj) {
+    var time = dateobj.getHours()+':';
+    if (dateobj.getMinutes()<10)
+      time += '0';
+    time += dateobj.getMinutes();
+    return time;
+  }
+
   $scope.activeDay = function(date) {
     var d = new Date();
     // Set this date as the active date if it is the current date,
@@ -184,6 +177,11 @@ app.controller('MainController', function($rootScope, $scope){
   $scope.upcoming = function (event) {
     return event.endTime >= (new Date());
   };
+  
+  $scope.openExternal = function(url) {
+    window.open(url,'_system');
+    return false;
+  }
 });
 
 

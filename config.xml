@@ -21,7 +21,8 @@
     
     <icon src="images/SCAppIcon.png" />
     <gap:splash src="splash.png" />
-    
+    <gap:splash src="splash.png" gap:platform="ios" width="256" height="256" />
+    <gap:splash src="splash.png" gap:platform="ios" width="256" height="256" />
     
     <gap:plugin name="org.li8.inappbrowser" version="0.1" />
     

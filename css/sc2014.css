@@ -15,15 +15,6 @@ div.app {
   background-image: url('../images/bg2.png');
 }
 
-.feature-icon {
-  font-size: 44px;
-  padding: 0;
-  line-height: 64px;
-  width: 64px;
-  text-align: center;
-  opacity: .8;
-}
-
 #sidebar {
 position: absolute;
 top: 0;
@@ -81,6 +72,20 @@ box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);
   color: white;
 }
 
+div.list-group {
+  margin: 0;
+}
+
+.feature-icon {
+  font-size: 44px;
+  padding: 0;
+  line-height: 64px;
+  width: 64px;
+  text-align: center;
+  opacity: .8;
+}
+
+
 .media {
   line-height: 1.5em;
 }
@@ -100,12 +105,15 @@ box-shadow: inset -0.1em 0em 0.35em 0em rgba(0,0,0,0.15);
   padding: 0 15px;
 }
 .schedule li a {
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 div.schedule_container {
   position: relative;
   width: 100%;
+}
+div.schedule_container .page-header {
+  text-align: left;
 }
 div.event_container {
   position: absolute;
@@ -120,6 +128,7 @@ div.event_hour {
   border-top: 1px solid gray;
   height: 60px;
   padding-left: 5px;
+  text-align: left;
 }
 div.event_cell {
   position: absolute;
@@ -128,4 +137,14 @@ div.event_cell {
   min-height: 15px;
   white-space: normal;
   opacity: 0.8;
+}
+.progress {
+  position: relative;
+  width: 100%;
+}
+.progress-bar-text {
+  position: absolute;
+  right: 5px;
+  color: black;
+  font-size: 0.8em;
 }

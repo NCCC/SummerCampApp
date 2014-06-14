@@ -9,11 +9,11 @@ app.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/rules',       {templateUrl: "rules.html"}); 
   $routeProvider.when('/schedule',    {templateUrl: "schedule.html"}); 
   $routeProvider.when('/map',         {templateUrl: "map.html"}); 
-  $routeProvider.when('/fellowships', {templateUrl: "fellowships.html"}); 
+  $routeProvider.when('/links',       {templateUrl: "links.html"}); 
 });
 
 
-app.controller('MainController', function($rootScope, $scope){
+app.controller('MainController', function($rootScope, $scope, $interval){
   $rootScope.$on("$routeChangeStart", function(){
     $rootScope.loading = true;
   });
@@ -47,17 +47,18 @@ app.controller('MainController', function($rootScope, $scope){
   ];
   
   $scope.contactPersons = [
-    { name: "Johan Ho", title: "App responsible", phone: "+47 980 37 910" },
+    { name: "Emergency number", title: "In case of emergency", label: "danger", phone: "112" },
   ];
   
   $scope.fellowships = [
+    { name: 'NCCC', url: 'http://nccc.se' },
+    { name: 'NCCC on Facebook', url: 'https://www.facebook.com/pages/NCCC/115899265118813' },
     { name: 'Agape Youth', city: 'Malmö', url: 'https://www.facebook.com/groups/172209486156469/' },
     { name: 'ALIVE', city: 'Oslo', url: 'http://nccc.se/alive/' },
     { name: 'Elpida Youth', city: 'Göteborg', url: 'https://www.facebook.com/elpida.youth' },
     { name: 'FourTwelve', city: 'Stockholm', url: 'https://www.facebook.com/ncccfourtwelve' },
     { name: 'Joy', city: 'Helsinki', url: 'https://www.facebook.com/Joy.youth' },
   ];
-  
   
   $scope.fixDate = function(dateobj) {
     return $scope.day_names[dateobj.getDay()]+' '+dateobj.getDate()+'.'+(dateobj.getMonth()+1);
@@ -107,13 +108,11 @@ app.controller('MainController', function($rootScope, $scope){
     // Then add event to entries array
     $scope.entries.push( {  
       day: startTime.getDay(),
-      dateobj: startTime,
       startTime: startTime,
       endTime: endTime,
       date_text: $scope.fixDate(startTime),
       title: entry.title.$t,
-      start: $scope.fixTime(startTime),
-      end: $scope.fixTime(endTime),
+      location: entry.gd$where[0].valueString,
       top: top,
       height: height,
       left: 0,
@@ -178,10 +177,62 @@ app.controller('MainController', function($rootScope, $scope){
     return event.endTime >= (new Date());
   };
   
+  $scope.eventPercentage = function (event) {
+    var now = new Date();
+    if (now < event.startTime)
+      return 0;
+    if (now > event.endTime)
+      return 100;
+    return (now-event.startTime)*100/(event.endTime-event.startTime);
+  };
+  
+  $scope.timeUntill = function (startTime) {
+    var slices = [];
+    var minutes = Math.floor((startTime-(new Date()))/60/1000);
+    if (minutes < 0)
+      return "";
+    if (minutes < 1)
+      return "less than a minute";
+      
+    var text;
+    if (minutes > 24*60) {
+      var days = Math.floor(minutes/60/24);
+      text = days+" day";
+      if (days > 1)
+        text += "s";
+      slices.push( text );
+      minutes -= days*24*60;
+    }
+    if (minutes > 60) {
+      var hours = Math.floor(minutes/60);
+      text = hours+" hour";
+      if (hours > 1)
+        text += "s";
+      slices.push( text );
+      minutes -= hours*60;
+    }
+    if (minutes > 0) {
+      text = minutes+" minute";
+      if (minutes > 1)
+        text += "s";
+      slices.push( text );
+    }
+    if (slices.length > 1) {
+      text = [slices.slice(0,-1).join(", "), slices[slices.length-1]].join(" and ");
+    } else text = slices[0];
+    return text;
+  };
+  
   $scope.openExternal = function(url) {
     window.open(url,'_system');
     return false;
   }
+  
+  $scope.updateNextEvent = function() {
+    $scope.now = new Date();
+  }
+  
+  $interval($scope.updateNextEvent, 10000);
 });
 
 

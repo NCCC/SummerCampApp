@@ -8,13 +8,34 @@
         </h1>
       </div>
       <a class="list-group-item media" href="#/schedule">
-        <div class="pull-right">
+        <div class="pull-left">
           <i class="fa fa-calendar-o feature-icon text-primary"></i>
+        </div>
+        <div class="media-body" ng-repeat="entry in entries | filter:upcoming | limitTo: 1">
+            <h2 class="media-heading">Current/next event</h2>
+            <h3>
+               {{fixDate(entry.startTime)}}  {{ fixTime(entry.startTime) }} - {{ fixTime(entry.endTime) }}: {{ entry.title }}<br/>
+               <small>{{entry.location}}</small>
+            </h3>
+            <p ng-show="timeUntill( entry.startTime )">
+              Starts in {{ timeUntill(entry.startTime) }}
+            </p>
+            <div class="progress progress-striped" ng-hide="timeUntill( entry.startTime )">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{now}}" aria-valuemin="{{entry.startTime}}" aria-valuemax="{{entry.endTime}}" style="width: {{eventPercentage(entry)}}%;">
+              </div>
+              <div class="progress-bar-text">{{timeUntill( entry.endTime)}} remaining</div>
+            </div>
+        </div>
+      </a>
+      <a class="list-group-item media" href="#/schedule">
+        <div class="pull-left">
+          <i class="fa fa-calendar feature-icon text-primary"></i>
         </div>
         <div class="media-body">
             <h2 class="media-heading">Upcoming events</h2>
-            <p ng-repeat="entry in entries | filter:upcoming | limitTo: 3">
-               {{entry.date_text}}  {{ entry.start }} - {{ entry.end }}: {{ entry.title }}
+            <p ng-repeat="entry in entries | filter:upcoming | limitTo: 4" ng-hide="$first">
+               {{fixDate(entry.startTime)}}  {{ fixTime(entry.startTime) }} - {{ fixTime(entry.endTime) }}: {{ entry.title }}<br/>
+               <em>{{entry.location}}</em>
             </p>
         </div>
       </a>

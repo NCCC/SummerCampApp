@@ -3,7 +3,11 @@
     <div class="section schedule">
       <h1>Schedule</h1>
       <ul class="nav nav-tabs">
-        <li ng-repeat="date in dates"><a href="#{{date.dateobj}}" toggle="on" parent-active-class="active" active>{{date.date_text|limitTo:2}}</a></li>
+        <li ng-repeat="date in dates">
+          <a href="#{{date.dateobj}}" toggle="on" parent-active-class="active">
+            {{date.date_text|limitTo:3}}
+          </a>
+        </li>
       </ul>
 
       <div class="tab-content">
@@ -13,7 +17,7 @@
             active-class="active" 
             id="{{ date.dateobj }}" 
             default="{{ activeDay(date) }}"
-            exclusion-group="myTabs">
+            exclusion-group="scheduleTabs">
 
           <h2 class="page-header">{{ date.date_text }}</h2>
           <div class="schedule_container" style="height: {{date.container_height}}px;">
@@ -27,14 +31,12 @@
                 ng-repeat="entry in entries | filter:{date_text: date.date_text }"
                 style="top: {{entry.top}}px; height: {{entry.height}}px; left: {{entry.left}}%; width: {{entry.width}}%;"
                 filter>
-                 {{ entry.start }} - {{ entry.end }}: {{ entry.title }}
+                 {{ fixTime(entry.startTime) }}<span ng-show="{{entry.endTime - entry.startTime}}"> - {{ fixTime(entry.endTime) }}</span>: {{ entry.title }}
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </div>

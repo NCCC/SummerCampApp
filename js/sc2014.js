@@ -1,7 +1,8 @@
 var app = angular.module('SummerCampApp', [
   "ngRoute",
   "ngTouch",
-  "mobile-angular-ui"
+  "angular-carousel",
+  "mobile-angular-ui",
 ]);
 
 app.config(function($routeProvider, $locationProvider) {
@@ -228,11 +229,29 @@ app.controller('MainController', function($rootScope, $scope, $interval){
     return false;
   }
   
+  $scope.now = new Date();
   $scope.updateNextEvent = function() {
     $scope.now = new Date();
+    
+    /*if ($scope.entries[0].startTime.getMonth() != 5) {
+      $scope.entries[0].startTime.setMonth( 5 );
+      $scope.entries[0].startTime.setDate( 13 );
+      $scope.entries[0].startTime.setHours( 21 );
+      $scope.entries[0].startTime.setMinutes( 45 );
+      
+      $scope.entries[0].endTime.setMonth( 5 );
+      $scope.entries[0].endTime.setDate( 13 );
+      $scope.entries[0].endTime.setHours( 22 );
+      $scope.entries[0].endTime.setMinutes( 45 );
+    } else 
+    $scope.entries[0].startTime.setMinutes( $scope.entries[0].startTime.getMinutes()-1 );
+    $scope.entries[0].endTime.setMinutes( $scope.entries[0].endTime.getMinutes()-1 );*/
+    //$scope.entries[0].startTime.setHours( $scope.entries[0].startTime.getHours()-1 );
   }
   
-  $interval($scope.updateNextEvent, 10000);
+  $interval($scope.updateNextEvent, 1000);
+  
+  $scope.scheduleTabIndex = 0;
 });
 
 

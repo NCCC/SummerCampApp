@@ -108,12 +108,12 @@ div.list-group {
   padding: 5px 10px;
 }
 
+#schedule-carousel .page-header {
+  text-align: left;
+}
 div.schedule_container {
   position: relative;
   width: 100%;
-}
-div.schedule_container .page-header {
-  text-align: left;
 }
 div.event_container {
   position: absolute;
@@ -147,4 +147,10 @@ div.event_cell {
   right: 5px;
   color: black;
   font-size: 0.8em;
+}
+
+
+
+.tab-pane.ng-move {
+  border: 3px solid red;
 }

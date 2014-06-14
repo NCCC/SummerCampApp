@@ -3,21 +3,21 @@
     <div class="section schedule">
       <h1>Schedule</h1>
       <ul class="nav nav-tabs">
-        <li ng-repeat="date in dates">
-          <a href="#{{date.dateobj}}" toggle="on" parent-active-class="active">
+        <li ng-repeat="date in dates" ng-class="{active: $parent.scheduleTabIndex == $index}">
+          <a href="" ng-click="$parent.scheduleTabIndex=$index">
             {{date.date_text|limitTo:3}}
           </a>
         </li>
       </ul>
-
-      <div class="tab-content">
+      <div rn-carousel rn-carousel-index="scheduleTabIndex" >
         <div ng-repeat="date in dates"
-            class="tab-pane" 
-            toggleable 
-            active-class="active" 
-            id="{{ date.dateobj }}" 
+            class="tab-pane"
+            toggleable
+            active-class="active"
+            id="{{ date.dateobj }}"
             default="{{ activeDay(date) }}"
-            exclusion-group="scheduleTabs">
+            exclusion-group="scheduleTabs"
+            >
 
           <h2 class="page-header">{{ date.date_text }}</h2>
           <div class="schedule_container" style="height: {{date.container_height}}px;">
@@ -32,7 +32,7 @@
                 style="top: {{entry.top}}px; height: {{entry.height}}px; left: {{entry.left}}%; width: {{entry.width}}%;"
                 filter>
                  {{ fixTime(entry.startTime) }}<span ng-show="{{entry.endTime - entry.startTime}}"> - {{ fixTime(entry.endTime) }}</span>: {{ entry.title }}
-                 <span ng-show="{{ entry.location}}">({{ entry.location}})</span>
+                 <span ng-show="'{{ entry.location}}'">({{ entry.location}})</span>
               </div>
             </div>
           </div>

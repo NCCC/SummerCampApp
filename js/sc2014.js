@@ -48,7 +48,7 @@ app.controller('MainController', function($rootScope, $scope, $interval){
   ];
   
   $scope.contactPersons = [
-    { name: "Emergency number", title: "In case of emergency", label: "danger", phone: "112" },
+    { name: "Swedish emergency number", title: "In case of emergency", label: "danger", phone: "112" },
   ];
   
   $scope.fellowships = [
@@ -273,3 +273,4 @@ function collidesWith( a, b )
 {
   return a.endTime > b.startTime && a.startTime < b.endTime;
 }
+

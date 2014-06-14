@@ -148,9 +148,3 @@ div.event_cell {
   color: black;
   font-size: 0.8em;
 }
-
-
-
-.tab-pane.ng-move {
-  border: 3px solid red;
-}

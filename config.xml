@@ -17,10 +17,13 @@
         NCCC
     </author>
     
-    <icon src="images/SCAppIcon.png" />
-    
     <preference name="permissions"                value="none"/>
     
+    <icon src="images/SCAppIcon.png" />
+    <gap:splash src="splash.png" />
+    
+    
     <gap:plugin name="org.li8.inappbrowser" version="0.1" />
+    
 
 </widget>

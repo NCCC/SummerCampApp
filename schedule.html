@@ -32,7 +32,7 @@
                 style="top: {{entry.top}}px; height: {{entry.height}}px; left: {{entry.left}}%; width: {{entry.width}}%;"
                 filter>
                  {{ fixTime(entry.startTime) }}<span ng-show="{{entry.endTime - entry.startTime}}"> - {{ fixTime(entry.endTime) }}</span>: {{ entry.title }}
-                 <span ng-show="'{{ entry.location}}'">({{ entry.location}})</span>
+                 <span class="event_location" ng-show="'{{entry.location}}'"> &ndash; {{entry.location}}</span>
               </div>
             </div>
           </div>

@@ -47,8 +47,29 @@ app.controller('MainController', function($rootScope, $scope, $interval){
     "Any camper who is unwilling to abide by these camp rules may be sent home!",
   ];
   
-  $scope.contactPersons = [
+  $scope.contact_persons = [
+    { name: "Sigurd Toft 陶思古", title: "Doctor", label: "danger", phone: "+46 735 699 569" },
+    { name: "Naiquan Ye 叶乃全", title: "Transport", label: "info", phone: "+46 728 417 415" },
     { name: "Swedish emergency number", title: "In case of emergency", label: "danger", phone: "112" },
+  ];
+  
+  $scope.map_locations = [
+    { number: 1, name: 'Dining hall' },
+    { number: 2, name: 'Östergården' },
+    { number: 3, name: 'Gym hall / Jubileumshallen' },
+    { number: 4, name: 'Sjöstugan' },
+    { number: 5, name: 'Timmerstugan' },
+    { number: 6, name: 'Södergården' },
+    { number: 7, name: 'Chapel' },
+    { number: 8, name: 'Strandvillan' },
+    { number: 9, name: 'Ängsvillan' },
+    { number: 10, name: 'Västergården' },
+    { number: 11, name: 'Rediviva' },
+    { number: 12, name: 'Norrgården' },
+    { number: 13, name: 'School building (Classroom 1 - 7, Arken, textile room, craft rooms, hemskolan)' },
+    { number: 14, name: 'Storgården' },
+    { number: 15, name: 'Solsidan' },
+    { number: 16, name: 'Åkergården' },
   ];
   
   $scope.fellowships = [

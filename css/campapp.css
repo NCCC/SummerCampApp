@@ -138,6 +138,9 @@ div.event_cell {
   white-space: normal;
   opacity: 0.8;
 }
+.event_location {
+  font-style: italic;
+}
 .progress {
   position: relative;
   width: 100%;

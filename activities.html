@@ -1,0 +1,53 @@
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="section schedule">
+      <h1>Activities</h1>
+      <ul class="nav nav-tabs">
+        <li ng-repeat="day in activity_days" ng-class="{active: $parent.activitiesTabIndex == $index}">
+          <a href="" ng-click="$parent.activitiesTabIndex=$index">
+            {{ day.name | limitTo:3 }}
+          </a>
+        </li>
+      </ul>
+      <div rn-carousel rn-carousel-index="activitiesTabIndex" >
+        <div ng-repeat="day in activity_days"
+            class="tab-pane"
+            toggleable
+            active-class="active"
+            id="{{ day.name }}"
+            default="{{ activityDay(day) }}"
+            >
+          <h2 class="page-header">{{ day.name }}</h2>
+          <div class="list-group">
+            <div ng-repeat="activity in day.activities" href="#" class="list-group-item">
+              <h3>Option {{$index+1}}: {{ activity.name }}</h3>
+              <p><strong>Responsible:</strong> {{ activity.responsible }}</p>
+              <p><strong>Location:</strong> {{ activity.location }}</p>
+              <p><strong>Sign up:</strong> {{ activity.signup }}</p>
+              <p ng-show="activity.max_participants > 0">
+                <strong>Max participants:</strong> {{ activity.max_participants }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--div class="list-group">
+      <div class="list-group-item">
+        <h1>Activities</h1>
+      </div>
+      <div ng-repeat="day in activity_days" href="#" class="list-group-item">
+        <h2>{{ day.name }}</h2>
+        <div ng-repeat="activity in day.activities" href="#" class="activity_options">
+          <h3>Option {{$index+1}}: {{ activity.name }}</h3>
+          <p><strong>Responsible:</strong> {{ activity.responsible }}</p>
+          <p><strong>Location:</strong> {{ activity.location }}</p>
+          <p><strong>Sign up:</strong> {{ activity.signup }}</p>
+          <p ng-show="activity.max_participants > 0">
+            <strong>Max participants:</strong> {{ activity.max_participants }}
+          </p>
+        </div>
+      </div>
+    </div-->
+  </div>
+</div>

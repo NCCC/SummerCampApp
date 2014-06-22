@@ -89,8 +89,11 @@ div.list-group {
 .media {
   line-height: 1.5em;
 }
-.media-phone {
+.media-phone, .media-location {
   margin: 0;
+}
+.media-location {
+  font-style: italic;
 }
 
 .phone-contact {
@@ -101,7 +104,7 @@ div.list-group {
   border-radius: 10px;
 }
 
-.schedule h1, .schedule h2, .schedule h3 {
+.schedule h1, .schedule h2, .schedule h3, .schedule p {
   padding: 0 15px;
 }
 .schedule li a {

@@ -39,7 +39,17 @@
             </p>
         </div>
       </a>
-
+      <a ng-repeat="day in activity_days | filter:activityToday " href="#/activities" class="list-group-item">
+        <div class="pull-left">
+          <i class="fa fa-star feature-icon text-primary"></i>
+        </div>
+        <div class="media-body">
+          <h2 class="media-heading">{{ day.name }}'s activities</h2>
+          <p ng-repeat="activity in day.activities" href="#">
+            Option {{$index+1}}: {{ activity.name }}
+          </p>
+        </div>
+      </a>
     </div>
 
   </div>

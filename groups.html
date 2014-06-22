@@ -1,0 +1,14 @@
+<div class="scrollable">
+  <div class="scrollable-content">
+    <div class="list-group">
+      <div class="list-group-item">
+        <h1>Groups</h1>
+      </div>
+      <div ng-repeat="group in groups" href="#" class="list-group-item">
+         <h2>{{ group.name }}</h2>
+         <p><strong>Cleaning area:</strong> {{ group.cleaning_area }}</p>
+         <p><strong>Days:</strong> {{ group.cleaning_days }}</p>
+      </div>
+    </div>
+  </div>
+</div>

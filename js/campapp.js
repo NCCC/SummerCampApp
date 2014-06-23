@@ -10,6 +10,8 @@ app.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/rules',       {templateUrl: "rules.html"}); 
   $routeProvider.when('/schedule',    {templateUrl: "schedule.html"}); 
   $routeProvider.when('/map',         {templateUrl: "map.html"}); 
+  $routeProvider.when('/groups',      {templateUrl: "groups.html"}); 
+  $routeProvider.when('/activities',  {templateUrl: "activities.html"}); 
   $routeProvider.when('/links',       {templateUrl: "links.html"}); 
 });
 
@@ -48,9 +50,139 @@ app.controller('MainController', function($rootScope, $scope, $interval){
   ];
   
   $scope.contact_persons = [
-    { name: "Sigurd Toft 陶思古", title: "Doctor", label: "danger", phone: "+46 735 699 569" },
+    { name: "Sigurd Toft 陶思古", title: "Doctor", label: "danger", phone: "+46 735 699 569", location: "Medical room, Rediviva basement" },
     { name: "Naiquan Ye 叶乃全", title: "Transport", label: "info", phone: "+46 728 417 415" },
     { name: "Swedish emergency number", title: "In case of emergency", label: "danger", phone: "112" },
+  ];
+  
+  $scope.groups = [
+    { name: "Selfless Sundae",
+      cleaning_area: "Dining hall: Toilets, plus rooms on second floor amnd third floor",
+      cleaning_days: "Tuesday, Thursday, Saturday (toilets on GF: every day)" },
+    { name: "Kind Ketchup",
+      cleaning_area: "Hemskolan: Big and small atelier room plus toilets",
+      cleaning_days: "Tuesday, Thursday, Saturday" },
+    { name: "Forgiving Fries",
+      cleaning_area: "Gym hall, toilets in gym hall basement",
+      cleaning_days: "Every day" },
+    { name: "Humble Hamburger",
+      cleaning_area: "Rediviva basement: Small classroom, corridor and two toilets",
+      cleaning_days: "Tuesday, Thursday, Saturday" },
+    { name: "Honoring Hot Dog",
+      cleaning_area: "Hemskolan: Group room next to kitchen, Arken, textile room, stairs, corridor and toilets",
+      cleaning_days: "Every day" },
+    { name: "Patient Pizza",
+      cleaning_area: "Public area (outside): Outside the dining hall, gym hall and hemskolan",
+      cleaning_days: "Tuesday, Thursday, Saturday" },
+    { name: "Encouraging Espresso",
+      cleaning_area: "Breakfast",
+      cleaning_days: "Tuesday" },
+    { name: "Hopeful Honeydew",
+      cleaning_area: "Breakfast",
+      cleaning_days: "Wednesday" },
+    { name: "Protecting Pear",
+      cleaning_area: "Breakfast",
+      cleaning_days: "Thursday" },
+    { name: "Righteous Raspberry",
+      cleaning_area: "Breakfast",
+      cleaning_days: "Friday" },
+    { name: "Trusting Tangerine",
+      cleaning_area: "Breakfast",
+      cleaning_days: "Saturday" },
+    { name: "Encouraging Espresso",
+      cleaning_area: "Breakfast",
+      cleaning_days: "Sunday" },
+  ];
+  
+  $scope.activity_days = [
+    { name: "Tuesday",
+      activities: [
+        { name: "Line dancing",
+          responsible: "Canada Team",
+          location: "Gym hall",
+          signup: "No sign up needed",
+          max_participants: 0,
+        },
+        {  name: "Team games",
+          responsible: "Enoch Chui & Erik Luo",
+          location: "Outdoors (cancelled if it rains)",
+          signup: "No sign up needed",
+          max_participants: 25,
+        },
+        { name: "Board games",
+          responsible: "Johan Ho",
+          location: "Library",
+          signup: "No sign up needed",
+          max_participants: 0,
+        }
+      ],
+    },
+    { name: "Wednesday",
+      activities: [
+        { name: "Games",
+          responsible: "Boston Team",
+          location: "Outdoors",
+          signup: "No sign up needed",
+          max_participants: 0,
+        },
+        {  name: "Group games",
+          responsible: "Sofia Ha",
+          location: "Rediviva, outdoors if good weather",
+          signup: "No sign up needed",
+          max_participants: "Optimally 8-16",
+        },
+        { name: "Board games",
+          responsible: "Enoch Chui",
+          location: "Library",
+          signup: "No sign up needed",
+          max_participants: 0,
+        }
+      ],
+    },
+    { name: "Thursday",
+      activities: [
+        { name: "Soccer",
+          responsible: "Eric Chen",
+          location: "Soccer field",
+          signup: "Information will be given on Tuesday, sign up by Wednesday evening",
+          max_participants: 0,
+        },
+        {  name: "Crafts",
+          responsible: "Iselin Shum & Christine Ye",
+          location: "Rediviva",
+          signup: "Information will be given Thursday morning",
+          max_participants: 25,
+        },
+        { name: "Board games",
+          responsible: "",
+          location: "Library",
+          signup: "No sign up needed",
+          max_participants: 0,
+        }
+      ],
+    },
+    { name: "Friday",
+      activities: [
+        { name: "Wing Chun",
+          responsible: "Peter Yeung",
+          location: "Gym hall",
+          signup: "No sign up needed",
+          max_participants: 0,
+        },
+        {  name: "Crafts",
+          responsible: "Ah Woon Chan & Minh Thu Vu",
+          location: "Rediviva",
+          signup: "No sign up needed",
+          max_participants: 0,
+        },
+        { name: "Board games",
+          responsible: "",
+          location: "Library",
+          signup: "No sign up needed",
+          max_participants: 0,
+        }
+      ],
+    },
   ];
   
   $scope.map_locations = [
@@ -198,6 +330,10 @@ app.controller('MainController', function($rootScope, $scope, $interval){
   $scope.upcoming = function (event) {
     return event.endTime >= (new Date());
   };
+  $scope.activityToday = function (activity_day) {
+    var day_num = $scope.day_names.indexOf(activity_day.name);
+    return ($scope.now.getDay() == day_num);
+  };
   
   $scope.eventPercentage = function (event) {
     var now = new Date();
@@ -273,6 +409,7 @@ app.controller('MainController', function($rootScope, $scope, $interval){
   $interval($scope.updateNextEvent, 1000);
   
   $scope.scheduleTabIndex = 0;
+  $scope.activitiesTabIndex = 0;
 });
 
 

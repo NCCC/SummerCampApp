@@ -21,7 +21,7 @@
     
     <!-- Default Icon and Splash -->
     <icon src="resources/icon/ios/Icon.png" />
-    <gap:splash src="splash.jpg" />
+    <gap:splash src="splash.png" />
     <gap:splash src="splash/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
     <gap:splash src="splash/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536" />
  

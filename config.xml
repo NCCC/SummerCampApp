@@ -24,6 +24,7 @@
     <gap:splash src="splash.png" />
     <gap:splash src="splash/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
     <gap:splash src="splash/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536" />
+    <gap:splash src="splash/ios/Default-iPhone5.png" gap:platform="ios" width="640" height="1136" />
  
     <!-- Android Icons -->
     <icon src="resources/icon/ios/Icon-40.png"         gap:platform="android"    gap:qualifier="ldpi" />
@@ -46,6 +47,7 @@
  
     <!-- 6.1 -->
     <icon src="resources/icon/ios/Icon-Small-50.png"  gap:platform="ios"        width="50" height="50" />
+    <icon src="resources/icon/ios/Icon-57.png"        gap:platform="ios"        width="57" height="57" />
     <icon src="resources/icon/ios/Icon-72.png"        gap:platform="ios"        width="72" height="72" />
     <icon src="resources/icon/ios/Icon-Small-100.png" gap:platform="ios"        width="100" height="100" />
     <icon src="resources/icon/ios/Icon-114.png"       gap:platform="ios"        width="114" height="114" />

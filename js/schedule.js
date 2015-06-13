@@ -8,10 +8,10 @@ https://developers.google.com/google-apps/calendar/v3/reference/events/list
 // API callback
 scheduleData = {
  "kind": "calendar#events",
- "etag": "\"1433443327191000\"",
+ "etag": "\"1433782275369000\"",
  "summary": "SC Schedule",
  "description": "Summer Camp Schedule",
- "updated": "2015-06-04T18:42:07.191Z",
+ "updated": "2015-06-08T16:51:15.369Z",
  "timeZone": "Europe/Stockholm",
  "accessRole": "reader",
  "defaultReminders": [],

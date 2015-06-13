@@ -25,6 +25,8 @@ app.controller('MainController', function($rootScope, $scope, $interval){
     $rootScope.loading = false;
   });
   
+  $scope.title = 'SC2015';
+  
   $scope.day_names = [
     'Sunday',
     'Monday',
